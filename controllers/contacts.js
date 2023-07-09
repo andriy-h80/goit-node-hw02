@@ -2,8 +2,8 @@ const contacts = require('../models/contacts');
 
 const {HttpError, ctrlWrapper} = require("../helpers");
 
-const listContacts = async (req, res) => {
-  const result = await contacts.listContacts();
+const getListContacts = async (req, res) => {
+  const result = await contacts.getListContacts();
   res.status(200).json(result);
 }
 
@@ -40,7 +40,7 @@ const updateContact = async (req, res) => {
 }
 
 module.exports = {
-  listContacts: ctrlWrapper(listContacts),
+  getListContacts: ctrlWrapper(getListContacts),
   getContactById: ctrlWrapper(getContactById),
   addContact: ctrlWrapper(addContact),
   removeContact: ctrlWrapper(removeContact),
